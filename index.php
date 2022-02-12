@@ -1,38 +1,55 @@
 <!-- header section -->
-<?php require_once "includes/header.php" ?>;
+<?php require_once "includes/header.php" ?>
 
 <!-- Navigation -->
-<?php require_once "includes/nav.php" ?>;
+<?php require_once "includes/nav.php" ?>
 
 <!-- Page Content -->
 <div class="container">
 
     <div class="row">
 
-        <!-- Blog Entries Column -->
-        <div class="col-md-8">
+        <?php
+        $query = "SELECT * from posts";
+        $data = mysqli_query($con, $query);
 
-            <h1 class="page-header">
-                Page Heading
-                <small>Secondary Text</small>
-            </h1>
+        while ($row = mysqli_fetch_assoc($data)) {
+            $Post_title = $row['post_title'];
+            $Post_author = $row['post_author'];
+            $Post_date = $row['post_date'];
+            // $Post_img = $row['post_img'];
+            $Post_content = $row['post_content'];
+            $Post_tags = $row['post_tags'];
+        ?>
 
-            <!-- First Blog Post -->
-            <h2>
-                <a href="#">Blog Post Title</a>
-            </h2>
-            <p class="lead">
-                by <a href="index.php">Start Bootstrap</a>
-            </p>
-            <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:00 PM</p>
-            <hr>
-            <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-            <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
-            <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+            <!-- Blog Entries Column -->
+            <div class="col-md-8">
 
-            <hr>
-        </div>
+                <h1 class="page-header">
+                    Page Heading
+                    <small>Secondary Text</small>
+                </h1>
+                <!-- First Blog Post -->
+                <h2>
+                    <a href="#"><?php echo $Post_title ?></a>
+                </h2>
+                <p class="lead">
+                    by <a href="index.php"><?php echo $Post_author ?></a>
+                </p>
+                <p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $Post_date ?></p>
+                <hr>
+                <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+                <hr>
+                <p><?php echo $Post_content ?></p>
+                <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+                <hr>
+            </div>
+        <?php
+
+        }
+
+        ?>
 
         <!-- side bar -->
         <?php require_once "includes/sidebar.php" ?>;
