@@ -4,16 +4,20 @@
             <!-- Blog Search Well -->
             <div class="well">
                 <h4>Blog Search</h4>
-                <div class="input-group">
-                    <input type="text" class="form-control">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </span>
-                </div>
+
+                <form action="" method="POST">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="search">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" name="btn_search">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
                 <!-- /.input-group -->
             </div>
+
 
             <!-- Blog Categories Well -->
             <div class="well">
