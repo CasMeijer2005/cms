@@ -53,9 +53,9 @@
         </div>
 
         <!-- side bar -->
-        <?php require_once "includes/sidebar.php" ?>;
+        <?php require_once "includes/sidebar.php" ?>
 
         <hr>
 
         <!-- Footer -->
-        <?php require_once "includes/footer.php" ?>;
+        <?php require_once "includes/footer.php" ?>
